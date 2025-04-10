@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ÿ <meta charset="UTF-8" />
+ÿ <title>LLM Chat Mock</title>
+ÿ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ÿ <style>
+ÿ ÿ body {
+ÿ ÿ ÿ font-family: "Segoe UI", sans-serif;
+ÿ ÿ ÿ background: #f0f0f5;
+ÿ ÿ ÿ margin: 0;
+ÿ ÿ ÿ padding: 20px;
+ÿ ÿ }
+
+ÿ ÿ .chat-container {
+ÿ ÿ ÿ max-width: 600px;
+ÿ ÿ ÿ margin: auto;
+ÿ ÿ ÿ background: #fff;
+ÿ ÿ ÿ border-radius: 8px;
+ÿ ÿ ÿ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ÿ ÿ ÿ padding: 20px;
+ÿ ÿ }
+
+ÿ ÿ .chat-log {
+ÿ ÿ ÿ min-height: 200px;
+ÿ ÿ ÿ background: #fafafa;
+ÿ ÿ ÿ border: 1px solid #ddd;
+ÿ ÿ ÿ border-radius: 5px;
+ÿ ÿ ÿ padding: 15px;
+ÿ ÿ ÿ overflow-y: auto;
+ÿ ÿ ÿ font-size: 14px;
+ÿ ÿ ÿ margin-bottom: 10px;
+ÿ ÿ }
+
+ÿ ÿ .chat-log p {
+ÿ ÿ ÿ margin: 0 0 10px;
+ÿ ÿ }
+
+ÿ ÿ .user-msg {
+ÿ ÿ ÿ text-align: right;
+ÿ ÿ ÿ color: #333;
+ÿ ÿ }
+
+ÿ ÿ .ai-msg {
+ÿ ÿ ÿ text-align: left;
+ÿ ÿ ÿ color: #0055aa;
+ÿ ÿ }
+
+ÿ ÿ textarea {
+ÿ ÿ ÿ width: 100%;
+ÿ ÿ ÿ padding: 10px;
+ÿ ÿ ÿ font-size: 14px;
+ÿ ÿ ÿ border: 1px solid #ccc;
+ÿ ÿ ÿ border-radius: 5px;
+ÿ ÿ ÿ resize: vertical;
+ÿ ÿ ÿ margin-bottom: 10px;
+ÿ ÿ }
+
+ÿ ÿ button {
+ÿ ÿ ÿ padding: 10px 16px;
+ÿ ÿ ÿ font-size: 14px;
+ÿ ÿ ÿ background-color: #0055aa;
+ÿ ÿ ÿ color: white;
+ÿ ÿ ÿ border: none;
+ÿ ÿ ÿ border-radius: 5px;
+ÿ ÿ ÿ cursor: pointer;
+ÿ ÿ }
+
+ÿ ÿ button:hover {
+ÿ ÿ ÿ background-color: #003d80;
+ÿ ÿ }
+ÿ </style>
+</head>
+<body>
+ÿ <div class="chat-container">
+ÿ ÿ <h2>LLM Chat UI (Mock)</h2>
+ÿ ÿ <div class="chat-log" id="chat-log">
+ÿ ÿ ÿ <p class="ai-msg"><strong>AI:</strong> Hello! How can I help you today?</p>
+ÿ ÿ </div>
+ÿ ÿ <textarea id="user-input" placeholder="Type your message..."></textarea>
+ÿ ÿ <button onclick="mockResponse()">Send</button>
+ÿ </div>
+
+ÿ <script>
+ÿ ÿ function mockResponse() {
+ÿ ÿ ÿ const input = document.getElementById("user-input").value;
+ÿ ÿ ÿ const log = document.getElementById("chat-log");
+
+ÿ ÿ ÿ if (!input.trim()) return;
+
+ÿ ÿ ÿ const userMessage = `<p class="user-msg"><strong>You:</strong> ${input}</p>`;
+ÿ ÿ ÿ const aiMessage = `<p class="ai-msg"><strong>AI:</strong> This is a mock response.</p>`;
+
+ÿ ÿ ÿ log.innerHTML += userMessage + aiMessage;
+ÿ ÿ ÿ document.getElementById("user-input").value = "";
+ÿ ÿ ÿ log.scrollTop = log.scrollHeight;
+ÿ ÿ }
+ÿ </script>
+</body>
+</html>
+
